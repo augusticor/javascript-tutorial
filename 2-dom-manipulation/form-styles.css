@@ -1,0 +1,77 @@
+body {
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+button {
+    border: none;
+    font-family: 'Trebuchet MS';
+    font-size: 20px;
+    height: 60px;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 10%;
+    width: 200px;
+}
+
+form {
+    padding-bottom: 3%;
+}
+
+.field-courses {
+    display: block;
+    padding: 40px;
+}
+
+fieldset {
+    display: flex;
+    font-family: 'Trebuchet MS';
+    margin-top: 5%;
+}
+
+h1 {
+    font-size: 50px;
+}
+
+header {
+    margin-top: 5%;
+}
+
+label {
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+
+p {
+    font-family: 'Trebuchet MS';
+}
+
+#reset {
+    background-color: #F76B62;
+}
+
+#reset:hover {
+    background-color: #F43327;
+}
+
+#send {
+    background-color: #3F9BF7;
+    color: white;
+    font-size: 25px;
+}
+
+#send:hover {
+    background-color: lightslategray;
+    color: white;
+}
+
+/*ERRORS*/
+.name-error {
+    border: 2px solid red;
+}
+
+.email-error {
+    border: 2px solid red;
+}

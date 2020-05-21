@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="augusticor">
+        <link rel="stylesheet" href="form-styles.css">
+        <title>Form validation using JS</title>
+    </head>
+
+    <body>
+        <form id="form">
+            <h1>Validate form with JS</h1>
+            <fieldset>  
+                <legend>Please enter your contact details</legend>
+                <label for="name">
+                    Your name: <input type="text" name="name-txt" id="name" placeholder="your name" />
+                    <abbr title="required name input" aria-label="required">*</abbr>
+                </label>
+                
+                <label for="email">
+                    Email address: <input type="email" name="email-field" id="email" placeholder="youremail@example.com" pattern="([a-z0-9]+[_az0-9\.-]*[a-z0-9]+)@([a-z0-9-]+(?:\.[a-z0-9-]+)*\.[a-z]{2,4})" />
+                    <abbr title="required email input" aria-label="required">*</abbr>
+                </label>
+
+                <label for="phonen">
+                    Phone number (+57): <input type="number" name="phonenumber" id="phonen" min="1" aria-label="your phone number +57 extension" />
+                </label>
+            </fieldset>
+
+            <fieldset class="field-courses">
+                <legend>Please select the courses that you are interested in <abbr title="required" aria-label="The courses you are interested to take">*</abbr></legend>
+
+                <label for="wd">
+                    <input type="checkbox" name="webdeveloper" id="wd" /> Web Developer
+                </label>
+
+                <label for="rd">
+                    <input type="checkbox" name="reactdeveloper" id="rd" /> React Developer
+                </label>
+
+                <label for="fs">
+                    <input type="checkbox" name="fullstack" id="fs" /> Fullstack Developer
+                </label>
+
+                <label for="other">
+                    <input type="checkbox" name="other" id="other" /> Other
+                </label>
+            </fieldset>
+
+            <p>Please enter a message</p>
+            <textarea name="textarea" id="texta" cols="60" rows="10" aria-label="optional message"></textarea>
+
+            <div>
+                <button id="send">Send form</button>
+                <button type="reset" id="reset">Reset form</button>
+            </div>
+        </form>    
+
+        <p id="final-information"></p>
+
+        <script src="form.js"></script>
+    </body>
+</html>
