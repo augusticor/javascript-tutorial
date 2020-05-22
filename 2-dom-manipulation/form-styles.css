@@ -10,9 +10,7 @@ button {
     font-family: 'Trebuchet MS';
     font-size: 20px;
     height: 60px;
-    margin-left: 30px;
-    margin-right: 30px;
-    margin-top: 10%;
+    margin: 10% 30px 0 30px;
     width: 200px;
 }
 
@@ -68,10 +66,6 @@ p {
 }
 
 /*ERRORS*/
-.name-error {
-    border: 2px solid red;
-}
-
-.email-error {
+.name-error, .email-error {
     border: 2px solid red;
 }

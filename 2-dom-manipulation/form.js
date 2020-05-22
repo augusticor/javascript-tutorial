@@ -4,9 +4,8 @@ const NAME_V = /^(([A-Za-z\s])+)$/;
 const EMAIL_V = /([a-z0-9]+[_az0-9\.-]*[a-z0-9]+)@([a-z0-9-]+(?:\.[a-z0-9-]+)*\.[a-z]{2,4})/;
 const PHONE_V = /[0-9]{2,}/;
 
-var htmlForm = document.querySelector('#form');
-htmlForm.addEventListener('submit', validateForm);
-var finalMessages = document.querySelector('#final-information');
+const HTML_FORM = document.querySelector('#form');
+HTML_FORM.addEventListener('submit', validateForm);
 
 function validateForm(event) {
     event.preventDefault();
@@ -17,37 +16,51 @@ function validateForm(event) {
         courses: document.querySelectorAll('input[type="checkbox"]'),
         message: document.querySelector('#texta')
     };
-    printInHTML(form.name, form.email, form.phone, form.courses, form.message);
+    deleteAllInformationParagraphs();
+    let name = validateName(form.name);
+    let email = validateEmail(form.email);
+    let phone = validatePhoneNumber(form.phone);
+    let courses = Array.isArray(validateCourses(form.courses));
+    if (name && email && phone && courses) {
+        printInHTML(form.name.value);
+        printInHTML(form.email.value);
+        printInHTML(form.phone.value);
+        printInHTML(validateCourses(form.courses));
+        printInHTML(form.message.value);
+    }
 }
 
-function validateName(nameToValidate) {
-    if (nameToValidate.value == '') {
-        nameToValidate.classList.add('name-error');
-        return 'Please fill the name field !';
+function validateName(name) {
+    if (name.value == '') {
+        name.classList.add('name-error');
+        printInHTML('Please fill the name field !');
     }
-    else if (!NAME_V.test(nameToValidate.value)) {
-        nameToValidate.classList.add('name-error');
-        return 'Please write a valid name, not numbers or special characters !';
+    else if (!NAME_V.test(name.value)) {
+        name.classList.add('name-error');
+        printInHTML('Please write a valid name, not numbers or special characters !');
     }
-    nameToValidate.classList.remove('name-error');
-    return nameToValidate.value;
+    name.classList.remove('name-error');
+    return true;
 }
 
-function validateEmail(emailToValidate) {
-    if(emailToValidate.value == '') {
-        emailToValidate.classList.add('email-error');
-        return 'Please fill out the email space !';
+function validateEmail(email) {
+    if (email.value == '') {
+        email.classList.add('email-error');
+        printInHTML('Please fill out the email space !');
     }
-    else if (!EMAIL_V.test(emailToValidate.value)) {
-        emailToValidate.classList.add('email-error');
-        return 'Please write a valid email';
+    else if (!EMAIL_V.test(email.value)) {
+        email.classList.add('email-error');
+        printInHTML('Please write a valid email');
     }
-    emailToValidate.classList.remove('email-error');
-    return emailToValidate.value;
+    email.classList.remove('email-error');
+    return true
 }
 
-function validatePhoneNumber(phoneToValidate) {
-    return PHONE_V.test(phoneToValidate) ? phoneToValidate : 'Please write at least 2 numbers !';
+function validatePhoneNumber(phone) {
+    if (!PHONE_V.test(phone.value)) {
+        printInHTML('Please write at least 2 numbers !');
+    }
+    return true;
 }
 
 function validateCourses(courses) {
@@ -57,14 +70,21 @@ function validateCourses(courses) {
             checked.push(cbCourse.name);
         }
     }
-    return (checked === undefined || checked.length == 0) ? 'Please select at least one course, you are interested in !' : checked;
+    if (checked === undefined || checked.length == 0) {
+        printInHTML('Please select at least one course, you are interested in');
+        return '';
+    } else {
+        return checked;
+    }
 }
 
-function printInHTML(nameToValidate, emailToValidate, phoneToValidate, courses, message) {
-    finalMessages.innerHTML = 'VALIDATION RESULT : <br><br>';
-    finalMessages.innerHTML += validateName(nameToValidate) + '<br>';
-    finalMessages.innerHTML += validateEmail(emailToValidate) + '<br>';
-    finalMessages.innerHTML += validatePhoneNumber(phoneToValidate) + '<br>';
-    finalMessages.innerHTML += validateCourses(courses) + '<br>';
-    finalMessages.innerHTML += message.value;
+function printInHTML(text) {
+    let p = document.createElement('p');
+    p.textContent = text;
+    p.classList.add('information-p');
+    HTML_FORM.appendChild(p);
+}
+
+function deleteAllInformationParagraphs() {
+    document.querySelectorAll('.information-p').forEach(pa => pa.remove());
 }
