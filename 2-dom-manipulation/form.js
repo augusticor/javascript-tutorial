@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 const NAME_V = /^(([A-Za-z\s])+)$/;
 const EMAIL_V = /([a-z0-9]+[_az0-9\.-]*[a-z0-9]+)@([a-z0-9-]+(?:\.[a-z0-9-]+)*\.[a-z]{2,4})/;
@@ -33,32 +33,36 @@ function validateForm(event) {
 function validateName(name) {
     if (name.value == '') {
         name.classList.add('name-error');
-        printInHTML('Please fill the name field !');
+        console.log('Please fill the name field !');
     }
     else if (!NAME_V.test(name.value)) {
         name.classList.add('name-error');
-        printInHTML('Please write a valid name, not numbers or special characters !');
+        console.log('Please write a valid name, not numbers or special characters !');
     }
-    name.classList.remove('name-error');
+    else {
+        form.name.classList.remove('name-error');
+    }
     return true;
 }
 
 function validateEmail(email) {
     if (email.value == '') {
         email.classList.add('email-error');
-        printInHTML('Please fill out the email space !');
+        console.log('Please fill out the email space !');
     }
     else if (!EMAIL_V.test(email.value)) {
         email.classList.add('email-error');
-        printInHTML('Please write a valid email');
+        console.log('Please write a valid email');
     }
-    email.classList.remove('email-error');
+    else {
+        form.email.classList.remove('email-error');
+    }
     return true
 }
 
 function validatePhoneNumber(phone) {
     if (!PHONE_V.test(phone.value)) {
-        printInHTML('Please write at least 2 numbers !');
+        console.log('Please write at least 2 numbers !');
     }
     return true;
 }
@@ -70,8 +74,8 @@ function validateCourses(courses) {
             checked.push(cbCourse.name);
         }
     }
-    if (checked === undefined || checked.length == 0) {
-        printInHTML('Please select at least one course, you are interested in');
+    if (!checked.length) {
+        console.log('Please select at least one course, you are interested in');
         return '';
     } else {
         return checked;
