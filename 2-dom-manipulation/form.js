@@ -2,7 +2,6 @@
 
 const NAME_V = /^(([A-Za-z\s])+)$/;
 const EMAIL_V = /([a-z0-9]+[_az0-9\.-]*[a-z0-9]+)@([a-z0-9-]+(?:\.[a-z0-9-]+)*\.[a-z]{2,4})/;
-const PHONE_V = /[0-9]{2,}/;
 
 const HTML_FORM = document.querySelector('#form');
 HTML_FORM.addEventListener('submit', validateForm);
@@ -19,9 +18,8 @@ function validateForm(event) {
     deleteAllInformationParagraphs();
     let name = validateName(form.name);
     let email = validateEmail(form.email);
-    let phone = validatePhoneNumber(form.phone);
     let courses = Array.isArray(validateCourses(form.courses));
-    if (name && email && phone && courses) {
+    if (name && email && courses) {
         printInHTML(form.name.value);
         printInHTML(form.email.value);
         printInHTML(form.phone.value);
@@ -33,38 +31,35 @@ function validateForm(event) {
 function validateName(name) {
     if (name.value == '') {
         name.classList.add('name-error');
-        console.log('Please fill the name field !');
+        alert('Please fill the name field !');
+        return false;
     }
     else if (!NAME_V.test(name.value)) {
         name.classList.add('name-error');
-        console.log('Please write a valid name, not numbers or special characters !');
+        alert('Please write a valid name, not numbers or special characters !');
+        return false;
     }
     else {
         form.name.classList.remove('name-error');
+        return true;
     }
-    return true;
 }
 
 function validateEmail(email) {
     if (email.value == '') {
         email.classList.add('email-error');
-        console.log('Please fill out the email space !');
+        alert('Please fill out the email space !');
+        return false;
     }
     else if (!EMAIL_V.test(email.value)) {
         email.classList.add('email-error');
-        console.log('Please write a valid email');
+        alert('Please write a valid email');
+        return false;
     }
     else {
         form.email.classList.remove('email-error');
+        return true
     }
-    return true
-}
-
-function validatePhoneNumber(phone) {
-    if (!PHONE_V.test(phone.value)) {
-        console.log('Please write at least 2 numbers !');
-    }
-    return true;
 }
 
 function validateCourses(courses) {
@@ -75,9 +70,11 @@ function validateCourses(courses) {
         }
     }
     if (!checked.length) {
-        console.log('Please select at least one course, you are interested in');
+        alert('Please select at least one course, you are interested in');
+        document.querySelector('.field-courses legend').classList.add('fieldset-courses-legend-error');
         return '';
     } else {
+        document.querySelector('.field-courses legend').classList.remove('fieldset-courses-legend-error');
         return checked;
     }
 }

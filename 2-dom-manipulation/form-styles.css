@@ -66,6 +66,11 @@ p {
 }
 
 /*ERRORS*/
-.name-error, .email-error {
+.email-error, .name-error {
     border: 2px solid red;
+}
+
+.fieldset-courses-legend-error {
+    color: red;
+    font-size: 20px;
 }
