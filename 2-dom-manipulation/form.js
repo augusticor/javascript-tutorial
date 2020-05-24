@@ -1,25 +1,33 @@
 'use strict';
 
-const NAME_V = /^(([A-Za-z\s])+)$/;
-const EMAIL_V = /([a-z0-9]+[_az0-9\.-]*[a-z0-9]+)@([a-z0-9-]+(?:\.[a-z0-9-]+)*\.[a-z]{2,4})/;
+const NAME_REGEX = /^(([A-Za-z\s])+)$/;
+const EMAIL_REGEX = /([a-z0-9]+[_az0-9\.-]*[a-z0-9]+)@([a-z0-9-]+(?:\.[a-z0-9-]+)*\.[a-z]{2,4})/;
+const PHONE_NUMBER_REGEX = /^([0-9]{10})$/;
 
-const HTML_FORM = document.querySelector('#form');
+const HTML_FORM = document.querySelector('.form');
 HTML_FORM.addEventListener('submit', validateForm);
+
+const NAME_ERROR_CLASS = 'name-error';
+const EMAIL_ERROR_CLASS = 'email-error';
+const PHONE_ERROR_CLASS = 'phone-error';
+const COURSES_ERROR_CLASS = 'fieldset-courses-legend-error';
+const FIELD_COURSES_LEGEND = document.querySelector('.field-courses legend');
 
 function validateForm(event) {
     event.preventDefault();
     let form = {
-        name: document.querySelector('#name'),
-        email: document.querySelector('#email'),
-        phone: document.querySelector('#phonen'),
-        courses: document.querySelectorAll('input[type="checkbox"]'),
-        message: document.querySelector('#texta')
+        name: HTML_FORM.querySelector('#name'),
+        email: HTML_FORM.querySelector('#email'),
+        phone: HTML_FORM.querySelector('#phonen'),
+        courses: HTML_FORM.querySelectorAll('input[type="checkbox"]'),
+        message: HTML_FORM.querySelector('#texta')
     };
     deleteAllInformationParagraphs();
     let name = validateName(form.name);
     let email = validateEmail(form.email);
+    let phone = validatePhoneNumber(form.phone);
     let courses = Array.isArray(validateCourses(form.courses));
-    if (name && email && courses) {
+    if (name && email && phone && courses) {
         printInHTML(form.name.value);
         printInHTML(form.email.value);
         printInHTML(form.phone.value);
@@ -30,36 +38,42 @@ function validateForm(event) {
 
 function validateName(name) {
     if (name.value == '') {
-        name.classList.add('name-error');
+        name.classList.add(NAME_ERROR_CLASS);
         alert('Please fill the name field !');
         return false;
     }
-    else if (!NAME_V.test(name.value)) {
-        name.classList.add('name-error');
+    else if (!NAME_REGEX.test(name.value)) {
+        name.classList.add(NAME_ERROR_CLASS);
         alert('Please write a valid name, not numbers or special characters !');
         return false;
     }
-    else {
-        form.name.classList.remove('name-error');
-        return true;
-    }
+    name.classList.remove(NAME_ERROR_CLASS);
+    return true;
 }
 
 function validateEmail(email) {
     if (email.value == '') {
-        email.classList.add('email-error');
+        email.classList.add(EMAIL_ERROR_CLASS);
         alert('Please fill out the email space !');
         return false;
     }
-    else if (!EMAIL_V.test(email.value)) {
-        email.classList.add('email-error');
+    else if (!EMAIL_REGEX.test(email.value)) {
+        email.classList.add(EMAIL_ERROR_CLASS);
         alert('Please write a valid email');
         return false;
     }
-    else {
-        form.email.classList.remove('email-error');
-        return true
+    email.classList.remove(EMAIL_ERROR_CLASS);
+    return true
+}
+
+function validatePhoneNumber(phoneN) {
+    if (phoneN.value != '' && !PHONE_NUMBER_REGEX.test(phoneN.value)) {
+        phoneN.classList.add(PHONE_ERROR_CLASS);
+        alert('Please write a valid phone number, only integer numbers and must be +57 extension (length 10) !');
+        return false;
     }
+    phoneN.classList.remove(PHONE_ERROR_CLASS);
+    return true;
 }
 
 function validateCourses(courses) {
@@ -71,10 +85,10 @@ function validateCourses(courses) {
     }
     if (!checked.length) {
         alert('Please select at least one course, you are interested in');
-        document.querySelector('.field-courses legend').classList.add('fieldset-courses-legend-error');
+        FIELD_COURSES_LEGEND.classList.add(COURSES_ERROR_CLASS);
         return '';
     } else {
-        document.querySelector('.field-courses legend').classList.remove('fieldset-courses-legend-error');
+        FIELD_COURSES_LEGEND.classList.remove(COURSES_ERROR_CLASS);
         return checked;
     }
 }

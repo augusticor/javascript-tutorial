@@ -5,7 +5,7 @@ body {
     text-align: center;
 }
 
-button {
+.buttons {
     border: none;
     font-family: 'Trebuchet MS';
     font-size: 20px;
@@ -14,35 +14,35 @@ button {
     width: 200px;
 }
 
-form {
+.form {
     padding-bottom: 3%;
 }
 
 .field-courses {
     display: block;
+    margin-bottom: 60px;
+}
+
+.fieldset-textfields {
+    display: flex;
+}
+
+.fieldset-textfields, .field-courses {
+    font-family: 'Trebuchet MS';
+    margin-top: 5%;
     padding: 40px;
 }
 
-fieldset {
-    display: flex;
-    font-family: 'Trebuchet MS';
-    margin-top: 5%;
-}
-
-h1 {
+.site-main-title {
     font-size: 50px;
 }
 
-header {
-    margin-top: 5%;
-}
-
-label {
+.label-form {
     padding-bottom: 30px;
     padding-top: 30px;
 }
 
-p {
+.paragraph-message-advice {
     font-family: 'Trebuchet MS';
 }
 
@@ -62,11 +62,12 @@ p {
 
 #send:hover {
     background-color: lightslategray;
-    color: white;
 }
 
 /*ERRORS*/
-.email-error, .name-error {
+.email-error,
+.name-error,
+.phone-error {
     border: 2px solid red;
 }
 
