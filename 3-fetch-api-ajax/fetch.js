@@ -1,8 +1,8 @@
 'use strict'
 
-const ARTICLE = document.querySelector('.main-article');
-const AUTHOR_IMG = ARTICLE.appendChild(document.createElement('img'));
-const AUTHOR_NAME = ARTICLE.appendChild(document.createElement('h3'));
+const article = document.querySelector('.main-article');
+const author_img= article.appendChild(document.createElement('img'));
+const author_name = article.appendChild(document.createElement('h3'));
 
 commitsInFrontEndRoadMap().then(
     data => {
