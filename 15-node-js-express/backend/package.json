@@ -1,0 +1,30 @@
+{
+  "name": "node-js-express",
+  "version": "0.0.1",
+  "description": "submit and send form from html to node js backend - express server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/augusticor/javascript-tutorial.git"
+  },
+  "keywords": [
+    "express",
+    "nodejs",
+    "form"
+  ],
+  "author": "augusticor",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/augusticor/javascript-tutorial/issues"
+  },
+  "homepage": "https://github.com/augusticor/javascript-tutorial#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}

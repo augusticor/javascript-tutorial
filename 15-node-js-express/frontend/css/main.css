@@ -1,0 +1,73 @@
+body {
+    align-items: center;
+    background-image: url('../assets/background.jpg');
+    background-size: cover;
+    color: white;
+    display: flex;
+    font-weight: bolder;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.buttons {
+    font-size: 20px;
+    height: 40px;
+    width: 150px;
+}
+
+.field-courses, .fieldset-textfields {
+    margin-bottom: 20px;
+}
+
+.fieldset-textfields {
+    display: flex;
+    flex-direction: column;
+}
+
+.fieldset-textfields .label-form {
+    padding: 20px 0 20px 0;
+}
+
+.form {
+    background-color: rgba(92, 92, 92, 0.28);
+}
+
+#reset {
+    border: 2px solid red;
+}
+
+#reset:hover {
+    background-color: red;
+    color: black;
+}
+
+#send {
+    background-color: lightgreen;
+    border: 2px solid green;
+}
+
+#send:hover {
+    background-color: green;
+    border: 2px solid black;
+    color: white;
+}
+
+.text-area {
+    height: 100px;
+    margin-bottom: 30px;
+    width: 400px;
+}
+
+/*ERRORS*/
+
+.email-error, .name-error, .phone-error {
+    border: 2px solid red;
+}
+
+.fieldset-courses-legend-error {
+    color: red;
+    font-size: 20px;
+    font-weight: normal;
+}
