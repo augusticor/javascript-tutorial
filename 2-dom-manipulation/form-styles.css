@@ -46,32 +46,43 @@ body {
     font-family: 'Trebuchet MS';
 }
 
-#reset {
+.reset {
     background-color: #F76B62;
 }
 
-#reset:hover {
+.reset:hover {
     background-color: #F43327;
 }
 
-#send {
+.send {
     background-color: #3F9BF7;
     color: white;
     font-size: 25px;
 }
 
-#send:hover {
+.send:hover {
     background-color: lightslategray;
 }
 
 /*ERRORS*/
-.email-error,
-.name-error,
-.phone-error {
+
+.email-error, .name-error, .phone-error {
     border: 2px solid red;
 }
 
-.fieldset-courses-legend-error {
+.email-error-msg, .name-error-msg, .phone-error-msg {
+    display: none;
+}
+
+.fieldset-courses-legend-error, .parag-error-msg {
     color: red;
     font-size: 20px;
+}
+
+.information-p {
+    display: none;
+}
+
+.parag-error-msg {
+    font-size: 12px;
 }

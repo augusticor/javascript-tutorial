@@ -16,15 +16,18 @@
                 <label class="label-form" for="name">
                     Your name: <input type="text" name="name-txt" id="name" placeholder="your name" />
                     <abbr title="required name input" aria-label="required">*</abbr>
+                    <p id="name-p-error" class="parag-error-msg name-error-msg">Error !</p>
                 </label>
                 
                 <label class="label-form" for="email">
                     Email address: <input type="email" name="email-field" id="email" placeholder="youremail@example.com" pattern="([a-z0-9]+[_az0-9\.-]*[a-z0-9]+)@([a-z0-9-]+(?:\.[a-z0-9-]+)*\.[a-z]{2,4})" />
                     <abbr title="required email input" aria-label="required">*</abbr>
+                    <p id="email-p-error" class="parag-error-msg email-error-msg">Error !</p>
                 </label>
-
+                
                 <label class="label-form" for="phonen">
                     Phone number (+57): <input type="tel" name="phonenumber" id="phonen" placeholder="0123456789" aria-label="your phone number +57 extension" />
+                    <p id="phone-p-error" class="parag-error-msg phone-error-msg">Error !</p>
                 </label>
             </fieldset>
 
@@ -49,12 +52,18 @@
             </fieldset>
 
             <label class="label-form" for="texta" class="paragraph-message-advice">Please enter a message</label> <br>
-            <textarea name="textarea" id="texta" cols="60" rows="10" aria-label="optional message"></textarea>
+            <textarea name="textarea" id="texta" cols="60" rows="5" aria-label="optional message"></textarea>
 
             <div>
-                <button class="buttons" id="send">Send form</button>
-                <button class="buttons" type="reset" id="reset">Reset form</button>
+                <button class="buttons send">Send form</button>
+                <button class="buttons reset" type="reset">Reset form</button>
             </div>
+
+            <p class="information-p"></p>
+            <p class="information-p"></p>
+            <p class="information-p"></p>
+            <p class="information-p"></p>
+            <p class="information-p"></p>
         </form>    
 
         <script src="form.js"></script>
