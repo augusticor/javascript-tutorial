@@ -12,52 +12,62 @@ body {
 }
 
 .buttons {
+    border: none;
+    font-family: 'Trebuchet MS';
     font-size: 20px;
-    height: 40px;
-    width: 150px;
+    height: 60px;
+    margin: 10% 30px 0 30px;
+    width: 200px;
 }
 
-.field-courses, .fieldset-textfields {
-    margin-bottom: 20px;
+.form {
+    padding-bottom: 3%;
+}
+
+.field-courses {
+    display: block;
+    margin-bottom: 60px;
 }
 
 .fieldset-textfields {
     display: flex;
-    flex-direction: column;
 }
 
-.fieldset-textfields .label-form {
-    padding: 20px 0 20px 0;
+.fieldset-textfields, .field-courses {
+    font-family: 'Trebuchet MS';
+    margin-top: 5%;
+    padding: 40px;
 }
 
-.form {
-    background-color: rgba(92, 92, 92, 0.28);
+.site-main-title {
+    font-size: 50px;
 }
 
-#reset {
-    border: 2px solid red;
+.label-form {
+    padding-bottom: 30px;
+    padding-top: 30px;
 }
 
-#reset:hover {
-    background-color: red;
-    color: black;
+.paragraph-message-advice {
+    font-family: 'Trebuchet MS';
 }
 
-#send {
-    background-color: lightgreen;
-    border: 2px solid green;
+.reset {
+    background-color: #F76B62;
 }
 
-#send:hover {
-    background-color: green;
-    border: 2px solid black;
+.reset:hover {
+    background-color: #F43327;
+}
+
+.send {
+    background-color: #3F9BF7;
     color: white;
+    font-size: 25px;
 }
 
-.text-area {
-    height: 100px;
-    margin-bottom: 30px;
-    width: 400px;
+.send:hover {
+    background-color: lightslategray;
 }
 
 /*ERRORS*/
@@ -66,8 +76,32 @@ body {
     border: 2px solid red;
 }
 
-.fieldset-courses-legend-error {
+.email-error-msg, .name-error-msg, .phone-error-msg {
+    display: none;
+}
+
+.fieldset-courses-legend-error, .parag-error-msg {
     color: red;
-    font-size: 20px;
-    font-weight: normal;
+    font-size: 15px;
+}
+
+.information-p {
+    display: none;
+}
+
+.parag-error-msg {
+    font-size: 12px;
+}
+
+@media screen and (max-width: 500px) {
+    .field-courses {
+        display: flex;
+        flex-direction: column;
+    }
+    .site-main-title {
+        font-size: 30px;
+    }
+    .text-area {
+        width: 260px;
+    }
 }
