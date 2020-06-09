@@ -1,1 +1,0 @@
-# Javascript Inheritance vs Composition

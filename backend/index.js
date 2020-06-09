@@ -5,7 +5,7 @@ const server = express();
 server.set('appName', 'Sending form data with nodeJS and express');
 server.set('port', 3000);
 
-server.use(express.static('../frontend'));
+server.use(express.static('../'));
 server.use(express.json());
 
 server.post('/submit-form', (request, response) => {
