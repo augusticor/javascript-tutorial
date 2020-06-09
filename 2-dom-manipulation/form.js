@@ -14,7 +14,7 @@ const form_data = {
     phone: html_form.querySelector('#phonen'),
     courses: html_form.querySelectorAll('input[type="checkbox"]'),
     message: html_form.querySelector('#texta')
-}
+};
 
 const classes = {
     NAME_ERROR_CLASS: 'name-error',
