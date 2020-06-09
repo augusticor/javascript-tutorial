@@ -1,0 +1,107 @@
+body {
+    align-items: center;
+    background-image: url('../assets/background.jpg');
+    background-size: cover;
+    color: white;
+    display: flex;
+    font-weight: bolder;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.buttons {
+    border: none;
+    font-family: 'Trebuchet MS';
+    font-size: 20px;
+    height: 60px;
+    margin: 10% 30px 0 30px;
+    width: 200px;
+}
+
+.form {
+    padding-bottom: 3%;
+}
+
+.field-courses {
+    display: block;
+    margin-bottom: 60px;
+}
+
+.fieldset-textfields {
+    display: flex;
+}
+
+.fieldset-textfields, .field-courses {
+    font-family: 'Trebuchet MS';
+    margin-top: 5%;
+    padding: 40px;
+}
+
+.site-main-title {
+    font-size: 50px;
+}
+
+.label-form {
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+
+.paragraph-message-advice {
+    font-family: 'Trebuchet MS';
+}
+
+.reset {
+    background-color: #F76B62;
+}
+
+.reset:hover {
+    background-color: #F43327;
+}
+
+.send {
+    background-color: #3F9BF7;
+    color: white;
+    font-size: 25px;
+}
+
+.send:hover {
+    background-color: lightslategray;
+}
+
+/*ERRORS*/
+
+.email-error, .name-error, .phone-error {
+    border: 2px solid red;
+}
+
+.email-error-msg, .name-error-msg, .phone-error-msg {
+    display: none;
+}
+
+.fieldset-courses-legend-error, .parag-error-msg {
+    color: red;
+    font-size: 15px;
+}
+
+.information-p {
+    display: none;
+}
+
+.parag-error-msg {
+    font-size: 12px;
+}
+
+@media screen and (max-width: 500px) {
+    .field-courses {
+        display: flex;
+        flex-direction: column;
+    }
+    .site-main-title {
+        font-size: 30px;
+    }
+    .text-area {
+        width: 260px;
+    }
+}

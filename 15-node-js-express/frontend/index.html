@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index" />
+    <meta name="description"
+        content="Final project from PUSH-DEV-CODE HTML, CSS and JS courses, validate and send a form using NodeJS and it's framework Express">
+    <meta name="keywords" content="node js, express js, form validation, javascript, html, css, PushDev">
+
+    <meta name="og:title" property="og:title" content="NodeJS exercise PushDev Code">
+    <meta name="og:description" property="og:description"
+        content="Node JS and express JS exercise, validate and send a form">
+    <meta name="twitter:card" content="summary">
+
+    <link rel="icon" type="image/png" href="assets/favicon.ico" sizes="256x256" />
+    <link rel="stylesheet" href="styles/main.css">
+
+    <title>Validate a form and save it using NodeJS and express final exercise - PushDev Code Course</title>
+</head>
+
+<body>
+    <form class="form">
+        <h1 class="site-main-title">Validate form with JS</h1>
+        <fieldset class="fieldset-textfields">
+            <legend>Please enter your contact details</legend>
+            <label class="label-form" for="name">
+                Your name: <input type="text" name="name-txt" id="name" placeholder="your name" />
+                <abbr title="required name input" aria-label="required">*</abbr>
+                <p id="name-p-error" class="parag-error-msg name-error-msg">Error !</p>
+            </label>
+
+            <label class="label-form" for="email">
+                Email address: <input type="email" name="email-field" id="email" placeholder="youremail@example.com"
+                    pattern="([a-z0-9]+[_az0-9\.-]*[a-z0-9]+)@([a-z0-9-]+(?:\.[a-z0-9-]+)*\.[a-z]{2,4})" />
+                <abbr title="required email input" aria-label="required">*</abbr>
+                <p id="email-p-error" class="parag-error-msg email-error-msg">Error !</p>
+            </label>
+
+            <label class="label-form" for="phonen">
+                Phone number (+57): <input type="tel" name="phonenumber" id="phonen" placeholder="0123456789"
+                    aria-label="your phone number +57 extension" />
+                <p id="phone-p-error" class="parag-error-msg phone-error-msg">Error !</p>
+            </label>
+        </fieldset>
+
+        <fieldset class="field-courses">
+            <legend id="courses-legend">Please select the courses that you are interested in <abbr title="required"
+                    aria-labelledby="courses-legend">*</abbr></legend>
+
+            <label class="label-form" for="wd">
+                <input type="checkbox" name="webdeveloper" id="wd" /> Web Developer
+            </label>
+
+            <label class="label-form" for="rd">
+                <input type="checkbox" name="reactdeveloper" id="rd" /> React Developer
+            </label>
+
+            <label class="label-form" for="fs">
+                <input type="checkbox" name="fullstack" id="fs" /> Fullstack Developer
+            </label>
+
+            <label class="label-form" for="other">
+                <input type="checkbox" name="other" id="other" /> Other
+            </label>
+        </fieldset>
+
+        <label class="label-form" for="texta" class="paragraph-message-advice">Please enter a message</label> <br>
+        <textarea class="text-area" name="textarea" id="texta" cols="60" rows="5"
+            aria-label="optional message"></textarea>
+
+        <div>
+            <button class="buttons send">Send form</button>
+            <button class="buttons reset" type="reset">Reset form</button>
+        </div>
+
+        <p class="information-p"></p>
+        <p class="information-p"></p>
+        <p class="information-p"></p>
+        <p class="information-p"></p>
+        <p class="information-p"></p>
+    </form>
+
+    <script src="scripts/form.js"></script>
+</body>
+
+</html>
